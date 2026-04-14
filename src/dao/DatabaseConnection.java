@@ -13,6 +13,14 @@ public class DatabaseConnection {
     }
 
     public static Connection getConnection() throws SQLException {
+        return Singleton.getConnection();
+    }
+
+    static Connection createConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+
+    public static void closeConnection() {
+        Singleton.closeConnection();
     }
 }
